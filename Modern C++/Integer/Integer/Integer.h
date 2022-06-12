@@ -6,6 +6,8 @@ private:
 public:
 	//default constructor
 	Integer();
+
+	Integer(const int val);
 	
 	//Parameterised constructor
 	Integer(const int&& val);

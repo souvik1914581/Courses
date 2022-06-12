@@ -1,30 +1,42 @@
 #include "Integer.h"
 
+#define PrintFunctionSignature()	\
+{\
+	std::cout << __FUNCSIG__ << std::endl;\
+}
+
+
 //Default constructor
 Integer::Integer()
 {
-	std::cout << "Default constructor" << std::endl;
+	PrintFunctionSignature();
 	m_ptr = new int(0);
+}
+
+Integer::Integer(const int val):Integer()
+{
+	PrintFunctionSignature();
+	*m_ptr = val;
 }
 
 //Parameterised constructor
 Integer::Integer(const int&& val) :Integer()
 {
-	std::cout << "Parameterised constructor" << std::endl;
+	PrintFunctionSignature();
 	*m_ptr = val;
 }
 
 //Destructor
 Integer::~Integer()
 {
-	std::cout << "Destructor" << std::endl;
+	PrintFunctionSignature();
 	delete m_ptr;
 }
 
 //Copy constructor
 Integer::Integer(const Integer& that)
 {
-	std::cout << "Copy constructor" << std::endl;
+	PrintFunctionSignature();
 	if (this == &that)
 		return;
 	delete m_ptr;
@@ -34,7 +46,7 @@ Integer::Integer(const Integer& that)
 //Move constructor
 Integer::Integer(Integer&& that) noexcept
 {
-	std::cout << "Move constructor" << std::endl;
+	PrintFunctionSignature();
 	if (this == &that)
 		return;
 	delete m_ptr;
@@ -45,7 +57,7 @@ Integer::Integer(Integer&& that) noexcept
 //Copy assignment operator
 Integer& Integer::operator=(const Integer& that)
 {
-	std::cout << "Copy assignment operator" << std::endl;
+	PrintFunctionSignature();
 	if (this == &that)
 		return *this;
 	delete m_ptr;
@@ -56,7 +68,7 @@ Integer& Integer::operator=(const Integer& that)
 //Move assignment opertor
 Integer& Integer::operator=(const Integer&& that) noexcept
 {
-	std::cout << "Move assignment operator" << std::endl;
+	PrintFunctionSignature();
 	if (this == &that)
 		return *this;
 	delete m_ptr;
@@ -67,7 +79,7 @@ Integer& Integer::operator=(const Integer&& that) noexcept
 //Addition operator
 Integer Integer::operator+(const Integer& that)
 {
-	std::cout << "Addition operator" << std::endl;
+	PrintFunctionSignature();
 	Integer result;
 	*result.m_ptr = GetValue() + that.GetValue();
 	return result;
@@ -77,7 +89,7 @@ Integer Integer::operator+(const Integer& that)
 
 std::ostream& operator << (std::ostream& out, const Integer& that)
 {
-	std::cout << " << operator" << std::endl;
+	PrintFunctionSignature();
 	out << that.GetValue() << std::endl;
 	return out;
 }
