@@ -9,4 +9,13 @@ public:
 	{
 
 	}
+
+	/*Number(const Number& n1) : m_integer{ m_integer.GetValue() }
+	{
+
+	}*/
+
+	
 };
+
+Number CreateNumber(const int num);

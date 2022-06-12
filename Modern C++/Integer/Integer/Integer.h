@@ -10,7 +10,7 @@ public:
 	Integer(const int val);
 	
 	//Parameterised constructor
-	Integer(const int&& val);
+	/*Integer(const int&& val);*/
 	
 	//Destructor
 	~Integer();
@@ -29,11 +29,22 @@ public:
 	Integer& operator = (const Integer&& that) noexcept;
 
 	Integer operator + (const Integer& that);
+
+	Integer& operator ++();
+
+	Integer operator ++(int);
 	
 	friend std::ostream& operator << (std::ostream& ,const Integer& that);
+
+	friend std::istream& operator >> (std::istream&,  Integer& that);
 
 	inline int GetValue() const
 	{
 		return *m_ptr;
+	}
+
+	void SetValue(const int val)
+	{
+		*m_ptr = val;
 	}
 };

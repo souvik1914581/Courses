@@ -1,9 +1,13 @@
 #include "Integer.h"
 
+#ifdef _PRINT_FUNC_SIGN_
 #define PrintFunctionSignature()	\
 {\
 	std::cout << __FUNCSIG__ << std::endl;\
 }
+#else
+#define PrintFunctionSignature()
+#endif
 
 
 //Default constructor
@@ -20,11 +24,11 @@ Integer::Integer(const int val):Integer()
 }
 
 //Parameterised constructor
-Integer::Integer(const int&& val) :Integer()
-{
-	PrintFunctionSignature();
-	*m_ptr = val;
-}
+//Integer::Integer(const int&& val) :Integer()
+//{
+//	PrintFunctionSignature();
+//	*m_ptr = val;
+//}
 
 //Destructor
 Integer::~Integer()
@@ -85,6 +89,19 @@ Integer Integer::operator+(const Integer& that)
 	return result;
 }
 
+Integer& Integer::operator++()
+{
+	++*m_ptr;
+	return *this;
+}
+
+Integer Integer::operator++(int)
+{
+	Integer temp(this->GetValue());
+	++*m_ptr;
+	return temp;
+}
+
 
 
 std::ostream& operator << (std::ostream& out, const Integer& that)
@@ -92,4 +109,12 @@ std::ostream& operator << (std::ostream& out, const Integer& that)
 	PrintFunctionSignature();
 	out << that.GetValue() << std::endl;
 	return out;
+}
+
+std::istream& operator>>(std::istream& in, Integer& that)
+{
+	int tempVal;
+	in >> tempVal;
+	that.SetValue(tempVal);
+	return in;
 }
