@@ -33,13 +33,22 @@
 //	return 0;
 //}
 
+auto foo()
+{
+	return SmartPointer<int>(new int(10));
+}
+
 int main(int argc, char** argv)
 {
-	SmartPointer<int> intPtr = nullptr;
+	/*SmartPointer<int> intPtr = nullptr;
 	intPtr = new int(6);
-	std::cout << *intPtr << std::endl;
+	SmartPointer<int> intPtr2 = nullptr;*/
+	//std::cout << *intPtr << std::endl;
+	SmartPointer<int> intPtr3 = foo();
+	SmartPointer<int> intPtr4 = std::move(intPtr3);	//invokes move constructor
+	SmartPointer<int> intPtr5 = nullptr;
+	intPtr5 = std::move(intPtr4);	//invokes move assignment operator
 
-	/*martPointer<Integer> myIntPtr = new Integer(10);
-	std::cout << *myIntPtr;*/
+	
 	return 0;
 }

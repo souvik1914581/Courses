@@ -24,27 +24,35 @@ public:
         m_ptr = ptr;
     }
 
-    SmartPointer(const SmartPointer& that) {
+    SmartPointer(const SmartPointer& that) = delete;
+
+    SmartPointer(SmartPointer&& that) {
         PrintFunctionSignature();
         m_ptr = that.m_ptr;
+        that.m_ptr = nullptr;
     }
 
     ~SmartPointer() {
         PrintFunctionSignature();
-        delete m_ptr;
+        if (m_ptr)
+        {
+            delete m_ptr;
+            m_ptr = nullptr;
+        }
     }
 
-    SmartPointer& operator = (T* ptr) {
+    SmartPointer& operator = (T*&& ptr) {
         PrintFunctionSignature();
         m_ptr = ptr;
         return *this;
     }
 
-    SmartPointer& operator = (const SmartPointer& that) {
-        if (*this != that)
-        {
-            m_ptr = that.m_ptr;
-        }
+    SmartPointer& operator = (const SmartPointer& that) = delete;
+
+    SmartPointer& operator = (SmartPointer&& that) {
+        PrintFunctionSignature();
+        m_ptr = that.m_ptr;
+        that.m_ptr = nullptr;
         return *this;
     }
 
