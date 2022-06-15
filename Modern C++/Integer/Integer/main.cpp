@@ -35,9 +35,11 @@
 
 int main(int argc, char** argv)
 {
-	SmartPointer<int> intPtr = new int(6);
+	SmartPointer<int> intPtr = nullptr;
+	intPtr = new int(6);
 	std::cout << *intPtr << std::endl;
 
-	SmartPointer<char> charPtr = nullptr;
+	/*martPointer<Integer> myIntPtr = new Integer(10);
+	std::cout << *myIntPtr;*/
 	return 0;
 }

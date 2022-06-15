@@ -24,9 +24,28 @@ public:
         m_ptr = ptr;
     }
 
+    SmartPointer(const SmartPointer& that) {
+        PrintFunctionSignature();
+        m_ptr = that.m_ptr;
+    }
+
     ~SmartPointer() {
         PrintFunctionSignature();
         delete m_ptr;
+    }
+
+    SmartPointer& operator = (T* ptr) {
+        PrintFunctionSignature();
+        m_ptr = ptr;
+        return *this;
+    }
+
+    SmartPointer& operator = (const SmartPointer& that) {
+        if (*this != that)
+        {
+            m_ptr = that.m_ptr;
+        }
+        return *this;
     }
 
     T operator *() {
