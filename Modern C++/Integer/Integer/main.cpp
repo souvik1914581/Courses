@@ -1,5 +1,6 @@
 #include "Integer.h"
 #include "Number.h"
+#include "SmartPointer.h"
 //int main(int argc, char** argv)
 //{
 //	
@@ -15,17 +16,28 @@
 //}
 
 
+//int main(int argc, char** argv)
+//{
+//	Integer i1(5);
+//	Integer i2(10);
+//	Integer i3(i1 + i2);
+//	Integer i4(i3);
+//	/*std::cout << i4;
+//	++i4;
+//	std::cout << i4++ << std::endl;
+//	std::cout << i4;
+//	std::cin >> i4;
+//	i4();
+//	std::cout << *i4 << std::endl;*/
+//	
+//	return 0;
+//}
+
 int main(int argc, char** argv)
 {
-	Integer i1(5);
-	Integer i2(10);
-	Integer i3(i1 + i2);
-	Integer i4(i3);
-	std::cout << i4;
-	++i4;
-	std::cout << i4++ << std::endl;
-	std::cout << i4;
-	std::cin >> i4;
-	std::cout << i4;
+	SmartPointer<int> intPtr = new int(6);
+	std::cout << *intPtr << std::endl;
+
+	SmartPointer<char> charPtr = nullptr;
 	return 0;
 }

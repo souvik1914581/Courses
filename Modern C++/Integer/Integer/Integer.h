@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "GlobalDefines.h"
 class Integer {
 private:
 	int* m_ptr{ nullptr };
@@ -37,6 +38,12 @@ public:
 	friend std::ostream& operator << (std::ostream& ,const Integer& that);
 
 	friend std::istream& operator >> (std::istream&,  Integer& that);
+
+	void operator ()();
+
+	int operator *();
+
+	int*& operator ->();
 
 	inline int GetValue() const
 	{

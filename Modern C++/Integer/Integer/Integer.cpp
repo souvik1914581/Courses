@@ -1,13 +1,6 @@
 #include "Integer.h"
 
-#ifdef _PRINT_FUNC_SIGN_
-#define PrintFunctionSignature()	\
-{\
-	std::cout << __FUNCSIG__ << std::endl;\
-}
-#else
-#define PrintFunctionSignature()
-#endif
+
 
 
 //Default constructor
@@ -100,6 +93,21 @@ Integer Integer::operator++(int)
 	Integer temp(this->GetValue());
 	++*m_ptr;
 	return temp;
+}
+
+void Integer::operator()()
+{
+	std::cout << *this;
+}
+
+int Integer::operator*()
+{
+	return GetValue();
+}
+
+int*& Integer::operator->()
+{
+	return m_ptr;
 }
 
 
