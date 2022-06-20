@@ -63,13 +63,20 @@ Integer& Integer::operator=(const Integer& that)
 }
 
 //Move assignment opertor
-Integer& Integer::operator=(const Integer&& that) noexcept
+Integer& Integer::operator=(const Integer&& that)
 {
 	PrintFunctionSignature();
 	if (this == &that)
 		return *this;
 	delete m_ptr;
 	m_ptr = that.m_ptr;
+	return *this;
+}
+
+Integer& Integer::operator=(const int& val)
+{
+	PrintFunctionSignature();
+	*m_ptr = val;
 	return *this;
 }
 
@@ -97,6 +104,7 @@ Integer Integer::operator++(int)
 
 void Integer::operator()()
 {
+	PrintFunctionSignature();
 	std::cout << *this;
 }
 
@@ -108,6 +116,11 @@ int Integer::operator*()
 int*& Integer::operator->()
 {
 	return m_ptr;
+}
+
+Integer::operator int()
+{
+	return GetValue();
 }
 
 

@@ -27,7 +27,9 @@ public:
 	Integer& operator = (const Integer& that);
 
 	//Move assignment operator
-	Integer& operator = (const Integer&& that) noexcept;
+	Integer& operator = (const Integer&& that);
+
+	Integer& operator = (const int& val);
 
 	Integer operator + (const Integer& that);
 
@@ -44,6 +46,8 @@ public:
 	int operator *();
 
 	int*& operator ->();
+
+	operator int();
 
 	inline int GetValue() const
 	{
