@@ -64,6 +64,7 @@
 //	return 0;
 //}
 
+#if 0
 //Type conversions
 int main(int argc, char** argv)
 {
@@ -78,3 +79,4 @@ int main(int argc, char** argv)
 	
 	return 0;
 }
+#endif
