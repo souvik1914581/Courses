@@ -32,8 +32,5 @@ int main(int argc, char** argv)
 
 	//For Shared pointers, we do not need to specify the function pointer as template argument
 	std::shared_ptr<int> intSharedPtr{ (int*)malloc(sizeof(int)),mallocFree };
-
-	//For Shared pointers, we do not need to specify function object as template argument
-	std::shared_ptr<int> intSharedPtr2{ (int*)malloc(sizeof(int)), Free{} };
 	return 0;
 }
