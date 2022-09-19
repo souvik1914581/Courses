@@ -2,6 +2,7 @@
 #include <cstring>
 #include <iostream>
 #include <ctype.h>
+#include <sstream>
 
 namespace ns_String {
 	int toupper(char ch) {
@@ -41,6 +42,20 @@ std::string ToLower(const std::string& str)
 
 }
 
+template <typename T>
+T Add(T x, T y) {
+	return (x + y);
+}
+
+void displayIntsInString(const std::string& str) {
+	std::stringstream ss;
+	ss.str(str);
+	int x{ 0 };
+	while (ss >> x) {	//fail bit is set if extraction fails
+		std::cout << x << std::endl;
+	}
+}
+#if 0
 int main(int argc, char **argv)
 {
 	/*if (argc < 2 || argv[1] == NULL || argv[1][0] == '\0')
@@ -62,5 +77,21 @@ int main(int argc, char **argv)
 		std::cout << "error tolower" << std::endl;
 	else
 		std::cout << "tolower: " << resultstr << std::endl;
+
+	int x{ 5 }, y{ 4 };
+	std::ostringstream outPutStream;
+	outPutStream << x << " + " << y << " = " << Add<int>(x, y) << std::endl;
+	std::string resultString = outPutStream.str();
+	std::cout << resultString;
+
+	/*C++11 has to_string() for all primitive types
+		eg. to_string(int) would also work
+	*/
+
+	std::string numString{ "12 34 54 -22" };
+	displayIntsInString(numString);
+
+	/*std::stoi also converts string to int*/
 	return 0;
 }
+#endif
