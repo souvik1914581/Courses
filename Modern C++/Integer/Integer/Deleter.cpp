@@ -18,6 +18,7 @@ void mallocFree(int* ptr)
 		free(ptr);
 	std::cout << "Freed ptr using Function pointer\n";
 }
+#if 0
 int main(int argc, char** argv)
 {
 #if 0
@@ -34,3 +35,4 @@ int main(int argc, char** argv)
 	std::shared_ptr<int> intSharedPtr{ (int*)malloc(sizeof(int)),mallocFree };
 	return 0;
 }
+#endif
