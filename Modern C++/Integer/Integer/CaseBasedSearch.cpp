@@ -70,6 +70,7 @@ namespace ns_caseBasedSearch
 	}
 };
 
+#if 0
 int main()
 {
 	const std::string sourceString = "Jaja! #Hola DEA!! ";
@@ -81,3 +82,4 @@ int main()
 		std::cout <<"\"" <<searchString << "\" not found in \"" << sourceString <<"\""<< std::endl;
 	return 0;
 }
+#endif
