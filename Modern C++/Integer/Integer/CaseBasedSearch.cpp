@@ -94,7 +94,7 @@ namespace ns_caseBasedSearch
 	}
 };
 
-#if 1
+#if 0
 int main()
 {
 	const std::string sourceString = "Jaja! #Hola DEA!! a dea ";

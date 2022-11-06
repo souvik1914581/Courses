@@ -1,8 +1,2 @@
-﻿  CaseBasedSearch.cpp
-C:\Users\souvi\source\repos\Courses\Modern C++\Integer\Integer\CaseBasedSearch.cpp(38,38): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\souvi\source\repos\Courses\Modern C++\Integer\Integer\CaseBasedSearch.cpp(88,29): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
+﻿  UnionsDemo.cpp
   Integer.vcxproj -> C:\Users\souvi\source\repos\Courses\Modern C++\Integer\x64\Debug\Integer.exe
