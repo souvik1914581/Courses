@@ -35,8 +35,8 @@ public:
 
 };
 
-int main() {
-	Bag<unsigned> bag1{ 1,2,3,4,5,6,7,8,9,10 };	//Bag object initialized with initializer list
-	bag1.Display();
-	return 0;
-}
+//int main() {
+//	Bag<unsigned> bag1{ 1,2,3,4,5,6,7,8,9,10 };	//Bag object initialized with initializer list
+//	bag1.Display();
+//	return 0;
+//}

@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <vector>
 
 enum class SEARCH_TYPE {
 	SEARCH_CASE_SENSITIVE,
@@ -68,18 +69,51 @@ namespace ns_caseBasedSearch
 		}
 		return matchPos;
 	}
+
+	/******
+	*	@name FindAll
+	*	@brief	find indices of all substrings in a string
+	* 
+	*/
+	std::vector<int> FindAll(const std::string& sourceString, const std::string& searchString, SEARCH_TYPE searchType = SEARCH_TYPE::SEARCH_CASE_SENSITIVE, size_t offset = 0)
+	{
+		std::vector<int> results;
+		size_t searchIndex = 0;
+		size_t result = 0;
+		do {
+			result = find(sourceString, searchString, searchType, searchIndex);
+			if (result != std::string::npos)
+			{
+				/*Successful hit*/
+				results.push_back(result);
+				searchIndex += result + 1;
+			}
+		
+		} while (result != std::string::npos);
+		return results;
+	}
 };
 
-#if 0
+#if 1
 int main()
 {
-	const std::string sourceString = "Jaja! #Hola DEA!! ";
-	const std::string searchString = "a dea!";
-	size_t result = ns_caseBasedSearch::find(sourceString, searchString,SEARCH_TYPE::SEARCH_CASE_INSENSITIVE,3);
+	const std::string sourceString = "Jaja! #Hola DEA!! a dea ";
+	const std::string searchString = "a dea";
+	/*size_t result = ns_caseBasedSearch::find(sourceString, searchString,SEARCH_TYPE::SEARCH_CASE_INSENSITIVE,3);
 	if (result != std::string::npos)
 		std::cout << "\"" << searchString << "\" found in position "<< result << " of \"" << sourceString << "\"" << std::endl;
 	else
-		std::cout <<"\"" <<searchString << "\" not found in \"" << sourceString <<"\""<< std::endl;
+		std::cout <<"\"" <<searchString << "\" not found in \"" << sourceString <<"\""<< std::endl;*/
+	const std::vector<int> results = ns_caseBasedSearch::FindAll(sourceString, searchString, SEARCH_TYPE::SEARCH_CASE_INSENSITIVE);
+	if (results.empty())
+		std::cout <<"\""<< searchString <<"\""<< " not found in " << "\""<<sourceString <<"\""<< std::endl;
+	else
+	{
+		std::cout << "\"" << searchString << "\"" << " found in " << "\"" << sourceString << "\"" << " at: ";
+		for (const auto& pos : results)
+			std::cout << pos << ",";
+		std::cout << std::endl;
+	}
 	return 0;
 }
 #endif
