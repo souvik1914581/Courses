@@ -40,13 +40,13 @@ union REG {
 	}
 };
 
-int main() {
-	using namespace std::string_literals;
-	REG reg;
-	//reg.str = "Hola DEA!"s;	//This causes undefined behavior as memory is not yet initialized
-
-	//new (&reg.str) std::string("Hola DEA"s);
-	new (&reg.a) IOREG{};	//initialization using placement new
-	reg.a.~IOREG();		//need to manually invoke destructor
-	return 0;
-}
+//int main() {
+//	using namespace std::string_literals;
+//	REG reg;
+//	//reg.str = "Hola DEA!"s;	//This causes undefined behavior as memory is not yet initialized
+//
+//	//new (&reg.str) std::string("Hola DEA"s);
+//	new (&reg.a) IOREG{};	//initialization using placement new
+//	reg.a.~IOREG();		//need to manually invoke destructor
+//	return 0;
+//}
