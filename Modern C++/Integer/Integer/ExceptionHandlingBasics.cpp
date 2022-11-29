@@ -58,16 +58,16 @@ void ProcessData(int size) {
 	delete tPtr;	*///this does not get invoked if above exceptions are thrown
 }
 
-int main() {
-	try {
-		//ProcessData(std::numeric_limits<int>::max());
-		ProcessData(30);
-	}
-	catch (std::exception& e) {									/*Base class of all exceptions*/
-		std::cout << "Caught Exception: " << e.what() << std::endl;
-	}
-	catch (...) {					/*This can catch any exception, but cannot specify the type of exception. Not recommended*/
-		std::cout << "Caught unknown exception" << std::endl;
-	}
-	return 0;
-}
+//int main() {
+//	try {
+//		//ProcessData(std::numeric_limits<int>::max());
+//		ProcessData(30);
+//	}
+//	catch (std::exception& e) {									/*Base class of all exceptions*/
+//		std::cout << "Caught Exception: " << e.what() << std::endl;
+//	}
+//	catch (...) {					/*This can catch any exception, but cannot specify the type of exception. Not recommended*/
+//		std::cout << "Caught unknown exception" << std::endl;
+//	}
+//	return 0;
+//}
